@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Store</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <style>
+        .hero {
+            background-color: #f8f9fa;
+            padding: 60px 0;
+            text-align: center;
+            background-image: url('path/to/your/background-image.jpg'); /* Add a background image if you like */
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+        }
+
+        .hero .book-cover {
+            max-width: 250px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-top: 20px;
+            color: #333;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin: 20px 0;
+            color: #666;
+        }
+
+        .hero .btn-buy {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            transition: background-color 0.3s ease;
+        }
+
+        .hero .btn-buy:hover {
+            background-color: #0056b3;
+        }
+        /* CSS Variables for easy customization */
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #6c757d;
+            --font-size-lg: 1.25rem;
+            --font-size-md: 1rem;
+            --border-radius: 5px;
+            --padding: 10px;
+            --margin-bottom: 20px;
+            --transition-speed: 0.3s;
+        }
+
+        /* General Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: var(--margin-bottom);
+            text-align: center;
+        }
+
+        .book-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: var(--margin-bottom);
+            padding: var(--padding);
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            background-color: #fff;
+            transition: box-shadow var(--transition-speed);
+            flex-wrap: wrap;
+        }
+
+        .book-item:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .book-cover {
+            width: 100px;
+            height: 150px;
+            object-fit: cover;
+            margin-right: 15px;
+            border-radius: var(--border-radius);
+            transition: transform var(--transition-speed);
+        }
+
+        .book-cover:hover {
+            transform: scale(1.05);
+        }
+
+        .book-details {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .book-title {
+            font-size: var(--font-size-lg);
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .book-author {
+            font-size: var(--font-size-md);
+            color: var(--secondary-color);
+        }
+
+        .book-price {
+            font-size: var(--font-size-md);
+            color: #333;
+            margin-top: 10px;
+        }
+
+        .btn-buy {
+            background-color: var(--primary-color);
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            font-size: var(--font-size-md);
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: background-color var(--transition-speed);
+            align-self: flex-start;
+            margin-top: 10px;
+        }
+
+        .btn-buy:hover {
+            background-color: darken(var(--primary-color), 10%);
+        }
+
+        @media (max-width: 768px) {
+            .book-item {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .book-cover {
+                width: 100%;
+                height: auto;
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+              /* Book Description Styles */
+        .book-description {
+            padding: 40px 20px;
+            background-color: #fff;
+            color: #333;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            text-align: right; /* Align text to the right for Arabic */
+        }
+
+        .book-description h2 {
+            font-size: 2rem;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .book-description p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .book-description ul {
+            margin-top: 15px;
+            padding-right: 20px; /* Add padding for right-aligned list */
+        }
+
+        .book-description ul li {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+            .book-details {
+                text-align: center;
+                align-items: center;
+            }
+
+            .btn-buy {
+                width: 100%;
+                text-align: center;
+            }
+          /* Sample Pages Section Styles */
+        .sample-pages {
+            padding: 40px 20px;
+            background-color: #f8f9fa;
+            color: #333;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            text-align: right;
+        }
+
+        .sample-pages h2 {
+            font-size: 2rem;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .sample-pages p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .sample-page img {
+            width: 100%;
+            max-width: 600px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        /* Contact Section Styles */
+        .contact {
+            padding: 40px 20px;
+            background-color: #fff;
+            color: #333;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            text-align: right;
+        }
+
+        .contact h2 {
+            font-size: 2rem;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .contact form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact form .form-group {
+            margin-bottom: 15px;
+        }
+
+        .contact form .btn-submit {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact form .btn-submit:hover {
+            background-color: #0056b3;
+        }
+
+        /* Email Signup Section Styles */
+        .email-signup {
+            padding: 40px 20px;
+            background-color: #f8f9fa;
+            color: #333;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            text-align: right;
+        }
+
+        .email-signup h2 {
+            font-size: 2rem;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .email-signup form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .email-signup form .form-group {
+            margin-bottom: 15px;
+        }
+
+        .email-signup form .btn-submit {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .email-signup form .btn-submit:hover {
+            background-color: #0056b3;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        }
+         footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="hero">
+    <!-- Book Cover -->
+    <img src="images/cover.jpeg" alt="Book Cover" class="book-cover">
+    <!-- Book Title -->
+    <h1>كتاب أسرار الخلق</h1>
+    <!-- Tagline or Quote -->
+    <p>اكتشف الأسرار العميقة للوجود والكون في هذا الكتاب </p>
+    <!-- Buy Now Button -->
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="5X3G64MLGETXC" />
+        <input type="hidden" name="currency_code" value="EUR" />
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Buy Now" />
+    </form>
+</div>
+<div class="container mt-4">
+
+                <div class="book-details">
+                    <div class="book-title">كتاب أسرار الخلق</div>
+                    <div class="book-author">Author: John Doe</div>
+                    <div class="book-price">Price: 17.00€</div>
+                    <div class="book-description">
+                        <h2>عن الكتاب</h2>
+                        <p>
+                            هل تساءلت يومًا عن حقيقة وجودك؟ هل تبحث عن إجابات لأسئلتك حول الكون والإنسان؟
+                        </p>
+                        <p>
+                            في هذا الكتاب الرائع، ستكشف الأسرار العميقة التي تربط بين الوعي البشري والكون بأبعاده المتعددة
+                            ابدأ رحلة فريدة تجمع بين الفلسفة والتاريخ والدين، حيث تكشف أن كل ما يحيط بك، بما في ذلك نفسك، هو جزء من هذا الوعي الإلهي
+                        </p>
+
+                        <h2>ما ستكتشفه</h2>
+                        <ul>
+                            <li>نظريات جديدة: كيف يشكل الإنسان والحيوان والنبات جزءًا من الوعي المطلق</li>
+                            <li>حقائق تاريخية: الكشف عن المعتقدات القديمة وفهم تأثيرها على الفكر الحالي</li>
+                            <li>تأملات فلسفية: رؤية جديدة للوجود والخلق</li>
+                        </ul>
+
+                        <h2>عرض خاص</h2>
+                        <p>
+                             احصل على نسختك الآن بسعر🎁 <strong>€17.00</strong> فقط
+                        </p>
+                    </div>
+                </div>
+    <!-- Sample Pages Section -->
+    <div class="container mt-4">
+        <div class="sample-pages">
+            <h2>صفحات من الكتاب</h2>
+            <p>
+                استمتع بقراءة بعض الصفحات من الكتاب قبل الشراء
+            </p>
+            <!-- Sample Page Images -->
+            <div class="sample-page">
+                <img src="images/sample(1).png" alt="صفحة عينة 1">
+            </div>
+            <div class="sample-page">
+                <img src="images/sample(2).png" alt="صفحة عينة 2">
+            </div>
+            <div class="sample-page">
+                <img src="images/sample(3).png" alt="صفحة عينة 3">
+            </div>
+        </div>
+    </div>
+    <!-- Contact Section -->
+    <div class="container mt-4">
+        <div class="contact">
+            <h2>اتصل بنا</h2>
+            <form action="https://formspree.io/f/xyzgjnwg" method="POST" >
+                <div class="form-group">
+                    <label for="name">:الاسم</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">:البريد الإلكتروني</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">:رسالتك</label>
+                    <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-submit">إرسال</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+<!-- Footer -->
+<footer class="bg-dark text-light py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <h5 class="footer-heading">تواصل معنا</h5>
+                <p>يمكنك الوصول إلينا عبر البريد الإلكتروني</p>
+                <a href="mailto:kadriahmad@gmail.com" class="text-light">kadriahmad@gmail.com</a>
+            </div>
+            <div class="col-md-6 mb-3">
+                <h5 class="footer-heading">تابعنا</h5>
+                <a href="https://www.tiktok.com/@unityconsciousness.17" class="text-light" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-tiktok"></i> تيك توك
+                </a>
+            </div>
+        </div>
+        <div class="text-center mt-4">
+            <p class="mb-0">© 2024 متجر الكتاب. جميع الحقوق محفوظة</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Font Awesome Icons (for TikTok icon) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</html>
+
+
+
+
