@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -194,6 +194,65 @@
             margin-top: 20px;
             text-align: right; /* Align text to the right for Arabic */
         }
+        /* Review Section Styles */
+.reviews {
+    padding: 40px 20px;
+    background-color: #f8f9fa;
+    color: #333;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    text-align: right;
+}
+
+.reviews h2, .reviews h3 {
+    font-size: 2rem;
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+.review-list {
+    margin-bottom: 30px;
+}
+
+.review-item {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+
+.review-item strong {
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.review-item p {
+    font-size: 1rem;
+    color: #555;
+    margin: 5px 0 0 0;
+}
+
+.submit-review form .form-group {
+    margin-bottom: 15px;
+}
+
+.submit-review form .btn-submit {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-review form .btn-submit:hover {
+    background-color: #0056b3;
+}
+
 
         .book-description h2 {
             font-size: 2rem;
@@ -249,6 +308,7 @@
             line-height: 1.6;
             margin-bottom: 15px;
         }
+
 
         .sample-page img {
             width: 100%;
@@ -338,6 +398,9 @@
         .email-signup form .btn-submit:hover {
             background-color: #0056b3;
         }
+        .container {
+            text-align: right; /* Align text inside the container to the right */
+        }
 
         /* Footer Styles */
         footer {
@@ -355,51 +418,52 @@
     </style>
 </head>
 <body>
+
 <div class="hero">
 
     <!-- Book Title -->
     <h1>كتاب أسرار الخلق</h1>
     <!-- Tagline or Quote -->
     <p>اكتشف الأسرار العميقة للوجود والكون في هذا الكتاب </p>
-    
+
 </div>
 <div class="container mt-4">
 
-                <div class="book-details">
-                    <div class="book-title">كتاب أسرار الخلق</div>
-                    <div class="book-author">Author: أحمد قدري</div>
-                    <div class="book-price">Price: 17.00€</div>
-                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" class="paypal-form">
-        <input type="hidden" name="cmd" value="_s-xclick" />
-        <input type="hidden" name="hosted_button_id" value="5X3G64MLGETXC" />
-        <input type="hidden" name="currency_code" value="EUR" />
-        <button type="submit" class="btn-paypal">
+    <div class="book-details">
+        <div class="book-title">كتاب أسرار الخلق</div>
+        <div class="book-author">Author: أحمد قدري</div>
+        <div class="book-price">Price: 17.00€</div>
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" class="paypal-form">
+            <input type="hidden" name="cmd" value="_s-xclick" />
+            <input type="hidden" name="hosted_button_id" value="5X3G64MLGETXC" />
+            <input type="hidden" name="currency_code" value="EUR" />
+            <button type="submit" class="btn-paypal">
                 شراء الكتاب
             </button>
-    </form>
-                    <div class="book-description">
-                        <h2>عن الكتاب</h2>
-                        <p>
-                            هل تساءلت يومًا عن حقيقة وجودك؟ هل تبحث عن إجابات لأسئلتك حول الكون والإنسان؟
-                        </p>
-                        <p>
-                            في هذا الكتاب الرائع، ستكشف الأسرار العميقة التي تربط بين الوعي البشري والكون بأبعاده المتعددة
-                            ابدأ رحلة فريدة تجمع بين الفلسفة والتاريخ والدين، حيث تكشف أن كل ما يحيط بك، بما في ذلك نفسك، هو جزء من هذا الوعي الإلهي
-                        </p>
+        </form>
+        <div class="book-description">
+            <h2>عن الكتاب</h2>
+            <p>
+                هل تساءلت يومًا عن حقيقة وجودك؟ هل تبحث عن إجابات لأسئلتك حول الكون والإنسان؟
+            </p>
+            <p>
+                في هذا الكتاب الرائع، ستكشف الأسرار العميقة التي تربط بين الوعي البشري والكون بأبعاده المتعددة
+                ابدأ رحلة فريدة تجمع بين الفلسفة والتاريخ والدين، حيث تكشف أن كل ما يحيط بك، بما في ذلك نفسك، هو جزء من هذا الوعي الإلهي
+            </p>
 
-                        <h2>ما ستكتشفه</h2>
-                        <ul class="right-aligned">
-                            <li>نظريات جديدة: كيف يشكل الإنسان والحيوان والنبات جزءًا من الوعي المطلق</li>
-                            <li>حقائق تاريخية: الكشف عن المعتقدات القديمة وفهم تأثيرها على الفكر الحالي</li>
-                            <li>تأملات فلسفية: رؤية جديدة للوجود والخلق</li>
-                        </ul>
+            <h2>ما ستكتشفه</h2>
+            <ul class="right-aligned">
+                <li>نظريات جديدة: كيف يشكل الإنسان والحيوان والنبات جزءًا من الوعي المطلق</li>
+                <li>حقائق تاريخية: الكشف عن المعتقدات القديمة وفهم تأثيرها على الفكر الحالي</li>
+                <li>تأملات فلسفية: رؤية جديدة للوجود والخلق</li>
+            </ul>
 
-                        <h2>عرض خاص</h2>
-                        <p>
-                             احصل على نسختك الآن بسعر🎁 <strong>€17.00</strong> فقط
-                        </p>
-                    </div>
-                </div>
+            <h2>عرض خاص</h2>
+            <p>
+                احصل على نسختك الآن بسعر🎁 <strong>€17.00</strong> فقط
+            </p>
+        </div>
+    </div>
     <!-- Sample Pages Section -->
     <div class="container mt-4">
         <div class="sample-pages">
@@ -418,16 +482,46 @@
                 <img src="images/book page 46.jpeg" alt="صفحة عينة 3">
             </div>
         </div>
-         <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" class="paypal-form">
-        <input type="hidden" name="cmd" value="_s-xclick" />
-        <input type="hidden" name="hosted_button_id" value="5X3G64MLGETXC" />
-        <input type="hidden" name="currency_code" value="EUR" />
-        <button type="submit" class="btn-paypal">
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" class="paypal-form">
+            <input type="hidden" name="cmd" value="_s-xclick" />
+            <input type="hidden" name="hosted_button_id" value="5X3G64MLGETXC" />
+            <input type="hidden" name="currency_code" value="EUR" />
+            <button type="submit" class="btn-paypal">
                 شراء الكتاب
             </button>
-    </form>
+        </form>
     </div>
-    
+    <!-- Review Section -->
+    <div class="contact mt-4">
+    <div>
+        <h2>آراء القراء</h2>
+        <div id="review-list" class="mb-4">
+            <th:block th:each="review : ${reviews}">
+                <div class="review-item">
+                    <h5 th:text="${review.name}">اسم المراجع</h5>
+                    <p th:text="${review.content}">محتوى المراجعة</p>
+                </div>
+            </th:block>
+        </div>
+
+        <!-- Review Form -->
+        <h3>أضف تقييمك</h3>
+        <div class="contact mt-4">
+            <form th:action="@{/reviews}" th:object="${newReview}" method="post" id="review-form" class="mb-4">
+                <div class="form-group">
+                    <label for="reviewer-name">الاسم</label>
+                    <input type="text" class="form-control" id="reviewer-name" th:field="*{name}" required>
+                </div>
+                <div class="form-group">
+                    <label for="review-content">مراجعة</label>
+                    <textarea class="form-control" id="review-content" th:field="*{content}" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-submit">إرسال</button>
+            </form>
+        </div>
+    </div>
+    </div>
+
     <!-- Contact Section -->
     <div class="container mt-4">
         <div class="contact">
@@ -449,6 +543,7 @@
             </form>
         </div>
     </div>
+</div>
 
 </body>
 <!-- Footer -->
@@ -481,6 +576,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </html>
+
 
 
 
