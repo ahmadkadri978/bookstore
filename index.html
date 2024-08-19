@@ -492,35 +492,6 @@
         </form>
     </div>
     <!-- Review Section -->
-    <div class="contact mt-4">
-    <div>
-        <h2>آراء القراء</h2>
-        <div id="review-list" class="mb-4">
-            <th:block th:each="review : ${reviews}">
-                <div class="review-item">
-                    <h5 th:text="${review.name}">اسم المراجع</h5>
-                    <p th:text="${review.content}">محتوى المراجعة</p>
-                </div>
-            </th:block>
-        </div>
-
-        <!-- Review Form -->
-        <h3>أضف تقييمك</h3>
-        <div class="contact mt-4">
-            <form th:action="@{/reviews}" th:object="${newReview}" method="post" id="review-form" class="mb-4">
-                <div class="form-group">
-                    <label for="reviewer-name">الاسم</label>
-                    <input type="text" class="form-control" id="reviewer-name" th:field="*{name}" required>
-                </div>
-                <div class="form-group">
-                    <label for="review-content">مراجعة</label>
-                    <textarea class="form-control" id="review-content" th:field="*{content}" rows="4" required></textarea>
-                </div>
-                <button type="submit" class="btn btn-submit">إرسال</button>
-            </form>
-        </div>
-    </div>
-    </div>
 
     <!-- Contact Section -->
     <div class="container mt-4">
