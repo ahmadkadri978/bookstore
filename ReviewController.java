@@ -18,7 +18,7 @@ public class ReviewController {
 
     @Autowired
     private ReviewService reviewService;
-    @GetMapping("/")
+    @GetMapping("/bookstore")
     public String loadIndexPage(Model model) {
         model.addAttribute("reviews", reviewService.getAllReviews());
         model.addAttribute("newReview", new Review());
@@ -29,6 +29,6 @@ public class ReviewController {
     @PostMapping("/reviews")
     public String submitReview(@ModelAttribute Review review) {
         reviewService.saveReview(review);
-        return "redirect:/";
+        return "redirect:/bookstore";
     }
 }
