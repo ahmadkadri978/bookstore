@@ -439,21 +439,13 @@
         <div class="book-title">كتاب أسرار الخلق</div>
         <div class="book-author">Author: أحمد قدري</div>
         <div class="book-price">Price: إختر السعر الذي يناسبك €</div>
-        <!-- تضمين سكربت PayPal الجديد -->
+        
 <script src="https://www.paypal.com/sdk/js?client-id=BAA-feErQO9DlNjUhik0DMyvp9kjI0BAa_h9imjFQXQWC6O_TyFCSKQGjgiYiJKZp_JxqZ751XRwLhFOVs&components=hosted-buttons&disable-funding=venmo&currency=EUR"></script>
-
-<!-- الاحتفاظ بالشكل القديم للزر -->
-<div class="paypal-form">
-    <button id="paypal-button" class="btn-paypal">
-        شراء الكتاب
-    </button>
-</div>
-
+<div id="paypal-container-R4URB73C26UQ2"></div>
 <script>
-  // استبدال محتوى الزر القديم بزر PayPal الجديد
   paypal.HostedButtons({
-    hostedButtonId: "4YBZC3DJ5AK6E",
-  }).render("#paypal-button");
+    hostedButtonId: "R4URB73C26UQ2",
+  }).render("#paypal-container-R4URB73C26UQ2")
 </script>
         <div class="book-description">
             <h2>عن الكتاب</h2>
