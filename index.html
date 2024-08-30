@@ -439,14 +439,22 @@
         <div class="book-title">كتاب أسرار الخلق</div>
         <div class="book-author">Author: أحمد قدري</div>
         <div class="book-price">Price: إختر السعر الذي يناسبك €</div>
-        <form action="https://www.paypal.com/ncp/payment/4YBZC3DJ5AK6E" method="post" target="_top" class="paypal-form">
-            <input type="hidden" name="cmd" value="_s-xclick" />
-            <input type="hidden" name="hosted_button_id" value="5X3G64MLGETXC" />
-            <input type="hidden" name="currency_code" value="EUR" />
-            <button type="submit" class="btn-paypal">
-                شراء الكتاب
-            </button>
-        </form>
+        <!-- تضمين سكربت PayPal الجديد -->
+<script src="https://www.paypal.com/sdk/js?client-id=BAA-feErQO9DlNjUhik0DMyvp9kjI0BAa_h9imjFQXQWC6O_TyFCSKQGjgiYiJKZp_JxqZ751XRwLhFOVs&components=hosted-buttons&disable-funding=venmo&currency=EUR"></script>
+
+<!-- الاحتفاظ بالشكل القديم للزر -->
+<div class="paypal-form">
+    <button id="paypal-button" class="btn-paypal">
+        شراء الكتاب
+    </button>
+</div>
+
+<script>
+  // استبدال محتوى الزر القديم بزر PayPal الجديد
+  paypal.HostedButtons({
+    hostedButtonId: "4YBZC3DJ5AK6E",
+  }).render("#paypal-button");
+</script>
         <div class="book-description">
             <h2>عن الكتاب</h2>
             <p>
